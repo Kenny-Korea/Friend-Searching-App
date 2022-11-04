@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
   chatContainer: {
     flex: 1,
     backgroundColor: "#fa9270",
+    color: "#fa9270",
   },
 });
 
