@@ -1,15 +1,18 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, ImageBackground } from "react-native";
+import { StyleSheet, ImageBackground, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { BlurView } from "expo-blur";
+import { Ionicons } from "@expo/vector-icons";
 
 import HomeScreen from "./screens/HomeScreen";
-import FavoriteScreen from "./screens/FavoriteScreen";
+import MyPageScreen from "./screens/MyPageScreen";
 import ChatScreen from "./screens/ChatScreen";
 import FriendScreen from "./screens/FriendScreen";
-import { LinearGradient } from "expo-linear-gradient";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
+import Colors from "./constants/colors";
+import AppText from "./components/common/AppText";
 
 export default function App() {
   const Tab = createBottomTabNavigator();
@@ -26,42 +29,82 @@ export default function App() {
   return (
     <>
       <StatusBar style="dark" />
-
-      <LinearGradient colors={["#e1e1e1", "#e1b"]} style={styles.rootScreen}>
-        <ImageBackground
-          source={require("./assets/images/friendship_background.jpeg")}
-          resizeMode="cover"
-          style={styles.rootScreen}
-          imageStyle={styles.backgroundImage}
+      <NavigationContainer>
+        {/* <LinearGradient colors={["#e1e1e1", "#e1b"]} style={styles.rootScreen}>
+          <ImageBackground
+            source={require("./assets/images/friendship_background.jpeg")}
+            resizeMode="cover"
+            style={styles.rootScreen}
+            imageStyle={styles.backgroundImage}
+          > */}
+        <Tab.Navigator
+          screenOptions={{
+            tabBarShowLabel: false,
+          }}
         >
-          <NavigationContainer>
-            <Tab.Navigator
-              screenOptions={{ tabBarStyle: { backgroundColor: "pink" } }}
-            >
-              <Tab.Screen
-                name="HomeScreen"
-                component={HomeScreen}
-                options={{ title: "친구찾기" }}
-              />
-              <Tab.Screen
-                name="ChatScreen"
-                component={ChatScreen}
-                options={{ title: "채팅" }}
-              />
-              <Tab.Screen
-                name="FriendScreen"
-                component={FriendScreen}
-                options={{ title: "친구목록" }}
-              />
-              <Tab.Screen
-                name="FavoriteScreen"
-                component={FavoriteScreen}
-                options={{ title: "찜목록" }}
-              />
-            </Tab.Navigator>
-          </NavigationContainer>
-        </ImageBackground>
-      </LinearGradient>
+          <Tab.Screen
+            name="HomeScreen"
+            component={HomeScreen}
+            options={{
+              tabBarIcon: ({ color, size }) => (
+                <Ionicons
+                  name="home-outline"
+                  color={Colors.primary}
+                  size={24}
+                />
+              ),
+              title: "친구 찾기",
+            }}
+          />
+          <Tab.Screen
+            name="ChatScreen"
+            component={ChatScreen}
+            options={{
+              tabBarIcon: ({ color, size }) => (
+                <Ionicons
+                  name="chatbubbles-outline"
+                  color={Colors.primary}
+                  size={24}
+                />
+              ),
+              title: "채팅",
+            }}
+          />
+          <Tab.Screen
+            name="FriendScreen"
+            component={FriendScreen}
+            options={{
+              tabBarIcon: ({ color, size }) => (
+                <Ionicons
+                  name="people-outline"
+                  color={Colors.primary}
+                  size={24}
+                />
+              ),
+              title: "내 친구",
+              // headerTitleStyle: {
+              //   color: Colors.primary,
+              // },
+            }}
+          />
+          <Tab.Screen
+            name="MyPageScreen"
+            component={MyPageScreen}
+            options={{
+              tabBarIcon: ({ color, size }) => (
+                <Ionicons
+                  name="grid-outline"
+                  color={Colors.primary}
+                  size={24}
+                />
+              ),
+              title: "마이페이지",
+            }}
+          />
+        </Tab.Navigator>
+        {/* </ImageBackground>
+        </LinearGradient> */}
+      </NavigationContainer>
     </>
   );
 }

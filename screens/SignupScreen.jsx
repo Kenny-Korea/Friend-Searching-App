@@ -1,15 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
 
-const LargeCard = () => {
+const SignUpScreen = () => {
   return (
-    <View style={styles.LargeCardContainer}>
-      <Text>LargeCard</Text>
+    <View style={styles.SignUpScreenContainer}>
+      <Text>SignUpScreen</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  LargeCardContainer: {
+  SignUpScreenContainer: {
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LargeCard;
+export default SignUpScreen;

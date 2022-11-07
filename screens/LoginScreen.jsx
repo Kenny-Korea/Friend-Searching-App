@@ -1,15 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
 
-const SmallCard = () => {
+const LoginScreen = () => {
   return (
-    <View style={styles.SmallCardContainer}>
-      <Text>SmallCard</Text>
+    <View style={styles.LoginScreenContainer}>
+      <Text>LoginScreen</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  SmallCardContainer: {
+  LoginScreenContainer: {
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SmallCard;
+export default LoginScreen;
