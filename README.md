@@ -1,2 +1,2 @@
-# Friend-Searching-App
-Friend-Searching-App
+# MeetCheen 친구찾기 앱
+MeetCheen
