@@ -10,10 +10,11 @@ const sequelize = new Sequelize(database, username, password, {
   dialect,
 });
 
-const Member = require('./member')(sequelize, Sequelize.DataTypes);
+const User = require('./user')(sequelize, Sequelize.DataTypes);
 
 const db = {};
-db.Member = Member;
+db.User = User;
+db.sequelize = sequelize;
 
 module.exports = db;
 
