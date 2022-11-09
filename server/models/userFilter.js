@@ -1,22 +1,36 @@
 const mongoose = require('mongoose');
 
-// const productSchema = new mongoose.Schema({
-//   name: {
-//     type: String,
-//     required: true,
-//   },
-//   price: {
-//     type: Number,
-//     required: true,
-//     min: 0,
-//   },
-//   category: {
-//     type: String,
-//     lowercase: true,
-//     enum: ['fruit', 'vegetable', 'dairy'],
-//   },
-// });
+const userFilterSchema = new mongoose.Schema({
+  userEmail: {
+    type: String,
+    required: true,
+    unique: true,
+    lowercase: true,
+  },
+  filterMinAge: {
+    type: Number,
+  },
+  filterMaxAge: {
+    type: Number,
+  },
+  filterMbti: {
+    type: String,
+  },
+  filterSex: {
+    type: Boolean,
+  },
+  filterDistance: {
+    type: Number,
+  },
+  filterInterest: [{ type: String, required: true }],
+  filterHobby: [{ type: String, required: true }],
+  //   filterMaxAge: {
+  //     type: String,
+  //     lowercase: true,
+  //     enum: ['fruit', 'vegetable', 'dairy'],
+  //   },
+});
 
-// const Product = mongoose.model('Product', productSchema);
+const UserFilter = mongoose.model('UserFilter', userFilterSchema);
 
-// module.exports = Product;
+module.exports = UserFilter;

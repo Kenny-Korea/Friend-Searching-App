@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const UserFilter = require('./models/userFilter');
 
 mongoose
   .connect('mongodb://localhost:27017/meetcheendb', { useNewUrlParser: true })
@@ -10,6 +11,15 @@ mongoose
     console.log('OH NO MONGO CONNECTION ERROR!!!!');
     console.log(err);
   });
+
+const userFilter = new UserFilter();
+
+// userFilter.userEmail = 'qkralstjd02';
+// userFilter.filterInterest = [];
+// userFilter.filterHobby = [];
+// userFilter.save().catch((e) => {
+//   console.log(e);
+// });
 
 async function startServer() {
   const app = express();
